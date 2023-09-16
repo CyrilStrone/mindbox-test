@@ -3,15 +3,17 @@
   justify-content: flex-start;
   align-items: flex-start;
   width: 100%;
-  min-height: 40px;
+  height: 40px;
   gap: 0px;
 }
 .TodoNew__Form {
   width: 100%;
+  height: 100%;
 }
 .TodoNew__Input {
   width: 100%;
   border: none;
+  background-color: var(--block-color-1);
   color: var(--font-color-2);
   font-size: var(--font-size-2);
   font-weight: var(--font-weight-2);
@@ -26,8 +28,7 @@
   background-clip: padding-box;
   border-radius: 10px;
   position: relative;
-  max-height: 300px;
-  min-height: 46px;
+  height: 100%;
   resize: none;
   overflow: auto;
   transition: height 0.15s ease-out;
@@ -43,7 +44,7 @@
 }
 .TodoNew__Icon {
   cursor: pointer;
-  height: 40px;
+  height: 100%;
   display: flex;
   align-items: center;
   padding: 0px 6px 0px 6px;
