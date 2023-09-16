@@ -1,6 +1,6 @@
 import { TodoConfigProps } from '../organelles/todo';
-import '../styles/todo-config.css'
 
+import '../styles/todo-config.css'
 
 export function TodoConfig(props: TodoConfigProps) {
   const setAllIsCheckToTrue = () => {

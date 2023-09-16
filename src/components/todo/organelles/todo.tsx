@@ -1,7 +1,9 @@
 import { useState } from 'react'
-import { TodoList } from '../molecules/todo-List'
+
 import { TodoConfig } from '../molecules/todo-config'
 import { TodoNew } from '../molecules/todo-new'
+import { TodoList } from '../molecules/todo-list'
+
 import '../styles/todo.css'
 
 export interface TodoValueProps {
@@ -50,7 +52,6 @@ interface TodoProps {
 export function Todo(props: TodoProps) {
   const [isShow, isSetShow] = useState<boolean>(true)
   const [filter, setFilter] = useState<"All" | "Active" | "Completed">('All')
-
   return (
     <div className={props.className ? (props.className + " Todo") : "Todo"}>
       <TodoNew isShow={isShow} isSetShow={isSetShow} value={props.value} setValue={props.setValue} />

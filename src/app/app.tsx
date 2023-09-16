@@ -12,7 +12,6 @@ function App() {
     <div className='App'>
       <Todo value={value} setValue={setValue} />
       {value && <JsonView data={value} shouldExpandNode={allExpanded} style={defaultStyles} />}
-
     </div>
   )
 }
