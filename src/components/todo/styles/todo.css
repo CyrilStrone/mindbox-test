@@ -1,0 +1,9 @@
+.Todo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background-color: var(--block-color-1);
+  color: black;
+  width: 380px;
+}

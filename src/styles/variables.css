@@ -1,0 +1,44 @@
+:root {
+  /* /colors */
+  --background: #f2f2f6;
+
+  --font-color-1: #8e8e92;
+  --font-color-2: #000000;
+  --font-color-3: #b7b7b9;
+  --font-color-4: #aeadb2;
+
+  --font-color-blue: #0c79fe;
+  --font-color-red: #f14c3c;
+  --font-color-orange: #ffa033;
+  --font-color-yellow: #f7ce45;
+  --font-color-green: #5dc466;
+  --font-color-purple: #b67ad5;
+  --font-color-brown: #9986;
+
+  --block-color-1: #ffffff;
+  --block-color-2: #000000;
+  --block-color-3: #ececf1;
+  --block-color-4: #fbfbfc;
+  --block-color-5: #e4e4e5;
+  /* colors/ */
+
+  /* /fonts */
+  --font-size-0: 10px;
+  --font-weight-0: 400;
+
+  --font-size-1: 12px;
+  --font-weight-1: 400;
+
+  --font-size-2: 15px;
+  --font-weight-2: 400;
+
+  --font-size-3: 17px;
+  --font-weight-3: 400;
+
+  --font-size-4: 20px;
+  --font-weight-4: 400;
+
+  --font-size-5: 32px;
+  --font-weight-5: 700;
+  /* fonts/ */
+}

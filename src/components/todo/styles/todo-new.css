@@ -1,0 +1,58 @@
+.TodoNew {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  min-height: 40px;
+  gap: 0px;
+}
+.TodoNew__Form {
+  width: 100%;
+}
+.TodoNew__Input {
+  width: 100%;
+  border: none;
+  color: var(--font-color-2);
+  font-size: var(--font-size-2);
+  font-weight: var(--font-weight-2);
+  display: inline-block;
+  box-sizing: border-box;
+  vertical-align: top;
+  width: 100%;
+  height: 36px;
+  padding-right: 15px;
+  color: #333;
+  text-align: left;
+  background-clip: padding-box;
+  border-radius: 10px;
+  position: relative;
+  max-height: 300px;
+  min-height: 46px;
+  resize: none;
+  overflow: auto;
+  transition: height 0.15s ease-out;
+}
+.TodoNew__Input:focus {
+  outline: none;
+}
+.TodoNew__Input::placeholder {
+  color: var(--font-color-3);
+  font-size: var(--font-size-2);
+  font-weight: var(--font-weight-2);
+  font-style: italic;
+}
+.TodoNew__Icon {
+  cursor: pointer;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 0px 6px 0px 6px;
+  width: 24px;
+  justify-content: center;
+}
+.TodoNew--show .TodoNew__Icon__El {
+  transform: rotate(270deg);
+}
+.TodoNew--hide .TodoNew__Icon__El {
+  transform: rotate(90deg);
+}
