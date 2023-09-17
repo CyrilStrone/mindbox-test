@@ -1,3 +1,5 @@
+[![wakatime](https://wakatime.com/badge/user/7f9aaba0-b5dd-4e0d-9f70-cd2b6ba680d1/project/409b459c-a3dc-40ff-8d3a-358cb1b9a3ab.svg)](https://wakatime.com/badge/user/7f9aaba0-b5dd-4e0d-9f70-cd2b6ba680d1/project/409b459c-a3dc-40ff-8d3a-358cb1b9a3ab)
+
 # Test task Frontend Junior in Mindbox
 # ⌨️ Usage
 
@@ -18,7 +20,7 @@
 
 Сделайте ToDo-приложение, позволяющее управлять текущим списком дел
 
-![ru][https://github.com/CyrilStrone/mindbox-test/tree/main/docs/ru.png]
+![ru](https://github.com/CyrilStrone/mindbox-test/blob/26e80a2d7cbc5ac6d71024f9495e61a80247b8a9/docs/ru.png)
 
 Что должно быть в интерфейсе:
 1. Поле для ввода новой задачи
@@ -31,7 +33,7 @@
 1. Проект должен запускаться командой npm i && npm run start
 1. Проект доступен на GitHub Pages/Vercel/etc.
 
-![eng][https://github.com/CyrilStrone/mindbox-test/tree/main/docs/eng.png]
+![eng](https://github.com/CyrilStrone/mindbox-test/blob/26e80a2d7cbc5ac6d71024f9495e61a80247b8a9/docs/eng.png)
 
 What should be in the interface:
 1. Field for entering a new task
