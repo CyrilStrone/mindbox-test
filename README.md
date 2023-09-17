@@ -18,7 +18,7 @@
 
 Сделайте ToDo-приложение, позволяющее управлять текущим списком дел
 
-![ru][https://github.com/CyrilStrone/docs/ru.png]
+![ru][https://github.com/CyrilStrone/mindbox-test/tree/main/docs/ru.png]
 
 Что должно быть в интерфейсе:
 1. Поле для ввода новой задачи
@@ -31,7 +31,7 @@
 1. Проект должен запускаться командой npm i && npm run start
 1. Проект доступен на GitHub Pages/Vercel/etc.
 
-![eng][https://github.com/CyrilStrone/docs/eng.png]
+![eng][https://github.com/CyrilStrone/mindbox-test/tree/main/docs/eng.png]
 
 What should be in the interface:
 1. Field for entering a new task
