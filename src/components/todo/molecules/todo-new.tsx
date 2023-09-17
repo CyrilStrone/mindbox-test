@@ -11,7 +11,6 @@ export const addNewItem = (newText: string, value: TodoValueProps[] | null, setV
     isCheck: false,
     date: new Date(),
   };
-
   if (value) {
     setValue([...value, newItem]);
   } else {
@@ -23,7 +22,7 @@ export const addNewItem = (newText: string, value: TodoValueProps[] | null, setV
 export function TodoNew(props: TodoNewProps) {
   const [newText, setNewText] = useState<string>("");
   const changeShow = () => {
-    props.isSetShow(!props.isShow)
+    if (props.isSetShow) props.isSetShow(!props.isShow)
   }
   const handleInputChange = (e: { target: { value: SetStateAction<string>; }; }) => {
     setNewText(String(e.target.value));

@@ -24,7 +24,7 @@ export const countItemsWithFalse = (value: TodoValueProps[] | null): number => {
 
 export function TodoConfig(props: TodoConfigProps) {
   const changeSetFilter = (filter: "All" | "Active" | "Completed") => {
-    props.setFilter(filter);
+    if (props.setFilter) props.setFilter(filter);
   }
   return (
     <div className='TodoConfig'>
@@ -51,9 +51,11 @@ export function TodoConfig(props: TodoConfigProps) {
           Completed
         </div>
       </div>
-      <div className='TodoConfig__ListCompleted' onClick={() => props.setValue(setAllIsCheckToTrue(props.value))}>
+      <div
+        className='TodoConfig__ListCompleted'
+        onClick={() => props.setValue(setAllIsCheckToTrue(props.value))}
+      >
         Clear completed
-
       </div>
     </div>
   )

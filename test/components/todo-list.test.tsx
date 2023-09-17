@@ -22,7 +22,6 @@ describe("Тестирование todo-list.tsx", () => {
         });
 
         describe("Переключение состояния задачи по ключу", () => {
-
             test("Должно переключить состояние задачи с false на true", () => {
                 toggleIsCheckByKey(0, setValueMock);
                 setValueMock((prevTodo: TodoValueProps[]) => {
@@ -38,11 +37,9 @@ describe("Тестирование todo-list.tsx", () => {
                     return todo;
                 });
             });
-
         });
 
         describe("Обработка несуществующего ключа", () => {
-
             test("Должно вернуть исходный массив задач, если ключ не существует", () => {
                 toggleIsCheckByKey(5, setValueMock);
                 setValueMock((prevTodo: TodoValueProps[]) => {
@@ -50,11 +47,9 @@ describe("Тестирование todo-list.tsx", () => {
                     return todo;
                 });
             });
-
         });
 
         describe("Обработка входного значения null", () => {
-
             test("Должно вернуть null, если предыдущее значение null", () => {
                 toggleIsCheckByKey(0, setValueMock);
                 setValueMock((prevTodo: TodoValueProps[] | null) => {
@@ -62,7 +57,6 @@ describe("Тестирование todo-list.tsx", () => {
                     return null;
                 });
             });
-
         });
     });
 
@@ -88,7 +82,6 @@ describe("Тестирование todo-list.tsx", () => {
         });
         
         describe('Тестирование отображения элементов TodoList', () => {
-
             test('Должно отображаться 3 элемента списка', () => {
                 const listItems = screen.getAllByTestId('TodoListItem');
                 expect(listItems.length).toBe(3);
@@ -115,7 +108,6 @@ describe("Тестирование todo-list.tsx", () => {
                 const listItems = await screen.getAllByTestId('TodoListItem');
                 expect(listItems.length).toBe(1);
             });
-
         });
     });
 });

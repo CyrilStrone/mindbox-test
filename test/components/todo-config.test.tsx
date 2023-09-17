@@ -93,7 +93,6 @@ describe("Тестирование todo-config.tsx", () => {
   });
 
   describe('Тестирование компонента TodoConfig', () => {
-
     const setValueMock = vi.fn();
     const setFilterMock = vi.fn();
     let renderOption: RenderResult;
@@ -117,7 +116,6 @@ describe("Тестирование todo-config.tsx", () => {
   });
   
     describe('Тестирование интерактивных элементов TodoConfig', () => {
-
       test('При клике "Clear completed" все задачи помечаются как завершенные', async () => {
         await userEvent.click(screen.getByText("Clear completed"));
         expect(setValueMock).toBeCalledWith([
