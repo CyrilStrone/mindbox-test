@@ -15,6 +15,7 @@ export interface TodoValueProps {
 export interface TodoListProps {
   value: TodoValueProps[] | null
   setValue: React.Dispatch<React.SetStateAction<TodoValueProps[] | null>>
+  
   iconTodoListItem?: React.ReactNode
   isShow: boolean
   filter: "All" | "Active" | "Completed"
@@ -22,6 +23,7 @@ export interface TodoListProps {
 export interface TodoConfigProps {
   value: TodoValueProps[] | null
   setValue: React.Dispatch<React.SetStateAction<TodoValueProps[] | null>>
+
   filter: "All" | "Active" | "Completed"
   setFilter: React.Dispatch<React.SetStateAction<"All" | "Active" | "Completed">>
 }
@@ -32,12 +34,13 @@ export interface TodoListPropsItem {
   toggleIsCheckByKey(id: number): void
 }
 export interface TodoNewProps {
+  value: TodoValueProps[] | null
+  setValue: React.Dispatch<React.SetStateAction<TodoValueProps[] | null>>
+
   placeholder?: string
   iconTodoNew?: React.ReactNode
   isShow: boolean
   isSetShow: React.Dispatch<React.SetStateAction<boolean>>
-  value: TodoValueProps[] | null
-  setValue: React.Dispatch<React.SetStateAction<TodoValueProps[] | null>>
 }
 interface TodoProps {
   value: TodoValueProps[] | null

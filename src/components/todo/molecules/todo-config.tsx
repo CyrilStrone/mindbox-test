@@ -1,36 +1,35 @@
-import { TodoConfigProps } from '../organelles/todo';
+import { TodoConfigProps, TodoValueProps } from '../organelles/todo';
 
 import '../styles/todo-config.css'
 
+export const setAllIsCheckToTrue = (value: TodoValueProps[] | null) => {
+  if (!value) return null
+  const updatedValue = value.map(item => ({
+    ...item,
+    isCheck: true,
+  }));
+  return updatedValue;
+}
+
+export const countItemsWithFalse = (value: TodoValueProps[] | null): number => {
+  if (!value) return 0
+  const count = value.reduce((accumulator, item) => {
+    if (!item.isCheck) {
+      return accumulator + 1;
+    }
+    return accumulator;
+  }, 0);
+  return count;
+}
+
 export function TodoConfig(props: TodoConfigProps) {
-  const setAllIsCheckToTrue = () => {
-    if (props.value) {
-      const updatedValue = props.value.map(item => ({
-        ...item,
-        isCheck: true,
-      }));
-      props.setValue(updatedValue);
-    }
-  }
-  const countItemsWithFalse = (): number => {
-    if (props.value) {
-      const count = props.value.reduce((accumulator, item) => {
-        if (!item.isCheck) {
-          return accumulator + 1;
-        }
-        return accumulator;
-      }, 0);
-      return count;
-    }
-    return 0;
-  }
   const changeSetFilter = (filter: "All" | "Active" | "Completed") => {
     props.setFilter(filter);
   }
   return (
     <div className='TodoConfig'>
       <div className='TodoConfig__ListLength'>
-        {countItemsWithFalse()} items left
+        {countItemsWithFalse(props.value)} items left
       </div>
       <div className='TodoConfig__ListType'>
         <div
@@ -52,9 +51,11 @@ export function TodoConfig(props: TodoConfigProps) {
           Completed
         </div>
       </div>
-      <div className='TodoConfig__ListCompleted' onClick={setAllIsCheckToTrue}>
+      <div className='TodoConfig__ListCompleted' onClick={() => props.setValue(setAllIsCheckToTrue(props.value))}>
         Clear completed
+
       </div>
     </div>
   )
 }
+

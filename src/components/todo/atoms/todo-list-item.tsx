@@ -9,7 +9,7 @@ export function TodoListItem(props: TodoListPropsItem) {
       <circle className='TodoListItem__Icon__El__False' cx="11" cy="11" r="10" stroke="#B7B7B9" strokeWidth="2" />
     </svg>;
   return (
-    <div className={props.value.isCheck ? "TodoListItem--active TodoListItem" : "TodoListItem"}>
+    <div data-testid="TodoListItem" className={props.value.isCheck ? "TodoListItem--active TodoListItem" : "TodoListItem"}>
       <div className='TodoListItem__Icon' onClick={() => props.toggleIsCheckByKey(props.id)}>
         {props.iconTodoListItem ? props.iconTodoListItem : ICON_LIST_ITEM}
       </div>

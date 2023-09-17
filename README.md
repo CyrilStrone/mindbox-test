@@ -16,6 +16,9 @@
 `npm run build`     
 `npm run deploy` 
 
+1. test the project:    
+`npm run test`
+
 # 📝 Exercise
 
 🇷🇺

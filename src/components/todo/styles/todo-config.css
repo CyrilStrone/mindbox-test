@@ -12,6 +12,9 @@
   box-sizing: border-box;
 }
 .TodoConfig__ListLength {
+  width: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .TodoConfig__ListType {
   display: flex;
