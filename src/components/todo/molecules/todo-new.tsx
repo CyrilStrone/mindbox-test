@@ -45,7 +45,6 @@ export function TodoNew(props: TodoNewProps) {
           placeholder={props.placeholder || "What needs to be done?"}
           minLength={3}
         />
-        {/* <button type="submit">Save post</button> */}
       </form>
     </div>
   )

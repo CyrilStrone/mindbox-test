@@ -33,14 +33,22 @@ export function TodoConfig(props: TodoConfigProps) {
         {countItemsWithFalse()} items left
       </div>
       <div className='TodoConfig__ListType'>
-        <div onClick={() => changeSetFilter("All")}
-          className={props.filter == "All" ? "TodoConfig__ListType__Item--active TodoConfig__ListType__Item" : "TodoConfig__ListType__Item"}>
+        <div
+          onClick={() => changeSetFilter("All")}
+          className={props.filter == "All" ? "TodoConfig__ListType__Item--active TodoConfig__ListType__Item" : "TodoConfig__ListType__Item"}
+        >
           All
         </div>
-        <div onClick={() => changeSetFilter("Active")} className={props.filter == "Active" ? "TodoConfig__ListType__Item--active TodoConfig__ListType__Item" : "TodoConfig__ListType__Item"}>
+        <div
+          onClick={() => changeSetFilter("Active")}
+          className={props.filter == "Active" ? "TodoConfig__ListType__Item--active TodoConfig__ListType__Item" : "TodoConfig__ListType__Item"}
+        >
           Active
         </div>
-        <div onClick={() => changeSetFilter("Completed")} className={props.filter == "Completed" ? "TodoConfig__ListType__Item--active TodoConfig__ListType__Item" : "TodoConfig__ListType__Item"}>
+        <div
+          onClick={() => changeSetFilter("Completed")}
+          className={props.filter == "Completed" ? "TodoConfig__ListType__Item--active TodoConfig__ListType__Item" : "TodoConfig__ListType__Item"}
+        >
           Completed
         </div>
       </div>
