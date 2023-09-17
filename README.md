@@ -18,9 +18,11 @@
 
 Сделайте ToDo-приложение, позволяющее управлять текущим списком дел
 
+![ru][https://github.com/CyrilStrone/docs/ru.png]
+
 Что должно быть в интерфейсе:
 1. Поле для ввода новой задачи
-1. Списки всех задач, невыполненных и выполненных задач (по отдельности)
+2. Списки всех задач, невыполненных и выполненных задач (по отдельности)
  
 Требования к коду:
 1. Приложение создано с использованием TypeScript, React и React Hooks
@@ -28,3 +30,16 @@
 1. Ключевая на ваш взгляд функциональность обязательно покрыта тестами
 1. Проект должен запускаться командой npm i && npm run start
 1. Проект доступен на GitHub Pages/Vercel/etc.
+
+![eng][https://github.com/CyrilStrone/docs/eng.png]
+
+What should be in the interface:
+1. Field for entering a new task
+2. Lists of all tasks, uncompleted and completed tasks (separately)
+ 
+Code requirements:
+1. The application is built using TypeScript, React and React Hooks
+1. Component libraries - at your discretion
+1. The key functionality in your opinion must be covered by tests
+1. The project must be started with the command npm i && npm run start
+1. The project is available on GitHub Pages/Vercel/etc.
