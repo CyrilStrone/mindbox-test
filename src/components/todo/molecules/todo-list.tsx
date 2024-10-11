@@ -1,41 +1,54 @@
-import '../styles/todo-list.css'
+import React from 'react'
 
-import { TodoListProps, TodoValueProps } from '../organelles/todo'
-import { TodoListItem } from '../atoms/todo-list-item';
+import { Typography } from '@components/typography'
 
-export const toggleIsCheckByKey = (id: number, setValue: (value: React.SetStateAction<TodoValueProps[] | null>) => void): void => {
-  setValue((prevValue) => {
-    if (!prevValue) return prevValue;
-    const newValue = [...prevValue];
-    if (newValue[id]) {
-      newValue[id] = {
-        ...newValue[id],
-        isCheck: !newValue[id].isCheck,
-      };
-    }
-    return newValue;
-  });
-}
+import {
+  TodoListItem,
+  TodoListProps,
+  TodoListWrapper,
+  TodoValueProps
+} from '..'
+import { toggleIsCheckByKey } from '../functions'
 
 export function TodoList(props: TodoListProps) {
+  const filterValue = React.useMemo(() => {
+    switch (props.filter) {
+      case 'All':
+        return props.value ?? []
+      case 'Active':
+        return (props.value ?? []).filter((e) => !e.isCheck)
+      case 'Completed':
+        return (props.value ?? []).filter((e) => e.isCheck)
+      default:
+        return []
+    }
+  }, [props.filter, props.value])
+  const isEmpty = React.useMemo(() => !filterValue.length, [filterValue])
+
   return (
-    <div className={props.isShow ? "TodoList--show TodoList" : "TodoList--hide TodoList"}>
-      {props.value && Array.isArray(props.value) && props.value.length !== 0 ? props.value.map((v: TodoValueProps, i: number) =>
-        props.filter == "All" ?
-          <TodoListItem id={i} toggleIsCheckByKey={() => toggleIsCheckByKey(i, props.setValue)} value={v} key={i} iconTodoListItem={props.iconTodoListItem} />
-          :
-          props.filter == "Active" && !v.isCheck ?
-            <TodoListItem id={i} toggleIsCheckByKey={() => toggleIsCheckByKey(i, props.setValue)} value={v} key={i} iconTodoListItem={props.iconTodoListItem} />
-            :
-            props.filter == "Completed" && v.isCheck ?
-              <TodoListItem id={i} toggleIsCheckByKey={() => toggleIsCheckByKey(i, props.setValue)} value={v} key={i} iconTodoListItem={props.iconTodoListItem} />
-              : null
-      )
-        :
-        <div className='TodoList__NoValue'>
-          No Reminders
-        </div>
-      }
-    </div>
+    <TodoListWrapper
+      $isShow={props.isShow}
+      $isEmpty={isEmpty}
+      flexDirection="column"
+      alignItems="flex-start"
+      flexWrap="nowrap"
+      minH="300px"
+      maxH="600px"
+      p="8px"
+    >
+      {!isEmpty ? (
+        filterValue.map((v: TodoValueProps, id) => (
+          <TodoListItem
+            id={id}
+            toggleIsCheckByKey={() => toggleIsCheckByKey(id, props.setValue)}
+            value={v}
+            key={id}
+            iconTodoListItem={props.iconTodoListItem}
+          />
+        ))
+      ) : (
+        <Typography variant="h6">No Reminders</Typography>
+      )}
+    </TodoListWrapper>
   )
 }
