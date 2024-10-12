@@ -1,12 +1,9 @@
-import { SetStateAction } from 'react'
-
 import { TodoValueProps } from '..'
 
 export const addNewItem = (
   newText: string,
   value: TodoValueProps[] | null,
-  setValue: React.Dispatch<React.SetStateAction<TodoValueProps[] | null>>,
-  setNewText: React.Dispatch<SetStateAction<string>>
+  setValue: React.Dispatch<React.SetStateAction<TodoValueProps[] | null>>
 ) => {
   if (!newText) return
   const newItem = {
@@ -19,5 +16,4 @@ export const addNewItem = (
   } else {
     setValue([newItem])
   }
-  setNewText('')
 }

@@ -3,8 +3,6 @@
     "<THIRD_PARTY_MODULES>",
     "^@app/(.*)$",
     "^@components/(.*)$",
-    "^@styles/(.*)$",
-    "^@core/(.*)$",
     "^@theme/(.*)$",
     "^[./]",
     "^@fontsource/(.*)$",

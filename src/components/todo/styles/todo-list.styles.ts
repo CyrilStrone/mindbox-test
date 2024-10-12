@@ -1,12 +1,12 @@
+import { Stack } from '@jenesei-software/jenesei-ui-react'
 import styled, { css } from 'styled-components'
-
-import { Stack } from '@components/flex'
 
 export const TodoListWrapper = styled(Stack)<{
   $isShow: boolean
   $isEmpty: boolean
 }>`
   overflow-y: auto;
+  overflow-x: hidden;
   ${(props) =>
     props.$isShow
       ? css`
@@ -22,5 +22,6 @@ export const TodoListWrapper = styled(Stack)<{
     props.$isEmpty &&
     css`
       justify-content: center;
+      align-items: center;
     `}
 `

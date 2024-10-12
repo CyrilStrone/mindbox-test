@@ -1,6 +1,5 @@
+import { Stack } from '@jenesei-software/jenesei-ui-react'
 import React from 'react'
-
-import { Stack } from '@components/flex'
 
 import {
   TodoConfig,
@@ -19,7 +18,9 @@ export function Todo(props: TodoProps) {
       flexDirection="column"
       justifyContent="flex-start"
       w="100%"
-      bg="graySandra"
+      bg="grayJanice"
+      p="4px"
+      style={{ borderRadius: '10px' }}
     >
       <TodoNew
         isShow={isShow}

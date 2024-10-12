@@ -11,7 +11,9 @@ export type TodoFilterStatePropsFilter = 'All' | 'Active' | 'Completed'
 
 interface TodoFilterStateProps {
   filter: TodoFilterStatePropsFilter
-  setFilter?: React.Dispatch<React.SetStateAction<'All' | 'Active' | 'Completed'>>
+  setFilter?: React.Dispatch<
+    React.SetStateAction<'All' | 'Active' | 'Completed'>
+  >
 }
 export interface TodoValueProps {
   text: string
@@ -19,10 +21,15 @@ export interface TodoValueProps {
   date?: Date
   author?: string
 }
-export interface TodoListProps extends TodoValueStateProps, TodoShowStateProps, TodoFilterStateProps {
+export interface TodoListProps
+  extends TodoValueStateProps,
+    TodoShowStateProps,
+    TodoFilterStateProps {
   iconTodoListItem?: React.ReactNode
 }
-export interface TodoConfigProps extends TodoValueStateProps, TodoFilterStateProps {}
+export interface TodoConfigProps
+  extends TodoValueStateProps,
+    TodoFilterStateProps {}
 export interface TodoListPropsItem {
   id: number
   iconTodoListItem?: React.ReactNode
@@ -30,7 +37,6 @@ export interface TodoListPropsItem {
   toggleIsCheckByKey(id: number): void
 }
 export interface TodoNewProps extends TodoValueStateProps, TodoShowStateProps {
-  placeholder?: string
   iconTodoNew?: React.ReactNode
 }
 

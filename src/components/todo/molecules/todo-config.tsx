@@ -1,17 +1,29 @@
-import { Stack } from '@components/flex'
-import { Typography } from '@components/typography'
+import {
+  Button,
+  ButtonGroup,
+  Stack,
+  Typography
+} from '@jenesei-software/jenesei-ui-react'
+import React from 'react'
 
 import {
-  TodoConfigListTypeItem,
   TodoConfigProps,
-  TodoFilterStatePropsFilter
+  TodoFilterStatePropsFilter,
+  countItemsWithFalse,
+  setAllIsCheckToTrue
 } from '..'
-import { countItemsWithFalse, setAllIsCheckToTrue } from '../functions'
+
+const variants: TodoFilterStatePropsFilter[] = ['All', 'Active', 'Completed']
 
 export function TodoConfig(props: TodoConfigProps) {
   const handleSetFilter = (filter: TodoFilterStatePropsFilter) => {
     props.setFilter?.(filter)
   }
+
+  const isDisabled = React.useMemo(
+    () => !props.value?.length,
+    [props.value?.length]
+  )
 
   return (
     <Stack
@@ -23,60 +35,45 @@ export function TodoConfig(props: TodoConfigProps) {
       p="10px"
       gap="18px"
     >
-      <Stack p="4px 6px">
-        <Typography overflow="hidden" textWrap="nowrap">
-          {countItemsWithFalse(props.value)} items left
+      <Button width="100px" isDisabled size="mediumSmall" genre="white">
+        <Typography variant="h6">
+          {countItemsWithFalse(props.value)} left
         </Typography>
-      </Stack>
-      <Stack alignItems="center" gap="18px">
-        <TodoConfigListTypeItem
-          p="4px 6px"
-          onClick={() => handleSetFilter('All')}
-          $isActive={props.filter == 'All'}
-        >
-          <Typography textWrap="nowrap" overflow="hidden">
-            All
-          </Typography>
-        </TodoConfigListTypeItem>
-        <TodoConfigListTypeItem
-          p="4px 6px"
-          onClick={() => handleSetFilter('Active')}
-          $isActive={props.filter == 'Active'}
-        >
-          <Typography textWrap="nowrap" overflow="hidden">
-            Active
-          </Typography>
-        </TodoConfigListTypeItem>
-        <TodoConfigListTypeItem
-          p="4px 6px"
-          onClick={() => handleSetFilter('Completed')}
-          $isActive={props.filter == 'Completed'}
-        >
-          <Typography textWrap="nowrap" overflow="hidden">
-            Completed
-          </Typography>
-        </TodoConfigListTypeItem>
-      </Stack>
-      <Stack p="4px 6px">
-        <Typography
-          overflow="hidden"
-          cursor="pointer"
-          textWrap="nowrap"
-          onClick={() => props.setValue(setAllIsCheckToTrue(props.value))}
-        >
-          Select all
-        </Typography>
-      </Stack>
-      <Stack p="4px 6px">
-        <Typography
-          overflow="hidden"
-          cursor="pointer"
-          textWrap="nowrap"
-          onClick={() => props.setValue([])}
-        >
-          Clear
-        </Typography>
-      </Stack>
+      </Button>
+      <ButtonGroup
+        position="horizontal"
+        value={variants.map((e) => ({
+          genre: props.filter == e ? 'product' : 'white',
+          size: 'mediumSmall',
+          width: 'auto',
+          isHidden: e !== 'All' ? isDisabled : false,
+          isDisabled: e !== 'All' ? isDisabled : false,
+          onClick: () => handleSetFilter(e),
+          children: <Typography variant="h6">{e}</Typography>
+        }))}
+      />
+      <Button
+        onClick={() => props.setValue(setAllIsCheckToTrue(props.value))}
+        size="mediumSmall"
+        genre="productBorder"
+        isHidden={isDisabled}
+        isDisabled={isDisabled}
+      >
+        <Typography variant="h6">Select all</Typography>
+      </Button>
+
+      <Button
+        onClick={() => {
+          props.setValue(null)
+          handleSetFilter('All')
+        }}
+        isHidden={isDisabled}
+        isDisabled={isDisabled}
+        size="mediumSmall"
+        genre="redTransparent"
+      >
+        <Typography variant="h6">Clear</Typography>
+      </Button>
     </Stack>
   )
 }

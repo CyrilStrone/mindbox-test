@@ -1,6 +1,5 @@
+import { Stack } from '@jenesei-software/jenesei-ui-react'
 import styled, { css } from 'styled-components'
-
-import { Stack } from '@components/flex'
 
 export const TodoConfigListTypeItem = styled(Stack)<{ $isActive: boolean }>`
   cursor: pointer;
