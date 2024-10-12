@@ -8,7 +8,6 @@ import {
 import React from 'react'
 
 import { TodoListProps, TodoListWrapper, TodoValueProps } from '..'
-import { toggleIsCheckByKey } from '../functions'
 
 export function TodoList(props: TodoListProps) {
   const [expanded, setExpanded] = React.useState<boolean>(false)
@@ -49,7 +48,6 @@ export function TodoList(props: TodoListProps) {
         accordionDetails={
           <TodoListWrapper
             pt="12px"
-            $isShow={props.isShow}
             $isEmpty={isEmpty}
             flexDirection="column"
             alignItems="flex-start"
@@ -62,7 +60,7 @@ export function TodoList(props: TodoListProps) {
               filterValue.map((v: TodoValueProps, id) => (
                 <Checkbox
                   key={id}
-                  onChange={() => toggleIsCheckByKey(id, props.setValue)}
+                  onChange={() => props.handleUpdateValueItemIsCheck(id)}
                   genre="grayBorder"
                   size="medium"
                   view="Square"

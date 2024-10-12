@@ -3,7 +3,7 @@ import { useForm } from '@tanstack/react-form'
 import { yupValidator } from '@tanstack/yup-form-adapter'
 import * as yup from 'yup'
 
-import { TodoNewForm, TodoNewProps, addNewItem } from '..'
+import { TodoNewForm, TodoNewProps } from '..'
 
 const validationRemind = yup
   .string()
@@ -24,7 +24,7 @@ export function TodoNew(props: TodoNewProps) {
       const result = {
         newRemind: value.newRemind.trim()
       }
-      addNewItem(result.newRemind, props.value, props.setValue)
+      props.handleAddValueItem(result.newRemind)
       form.reset()
     },
     asyncDebounceMs: 500,

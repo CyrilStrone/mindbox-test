@@ -1,4 +1,4 @@
-export * from './add-new-item'
-export * from './toggle-is-check-by-key'
-export * from './set-all-is-check-to-true'
+export * from './add-value-item'
+export * from './update-value-item-is-check'
+export * from './update-value-all-is-check'
 export * from './count-items-with-false'

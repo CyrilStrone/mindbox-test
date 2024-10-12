@@ -9,17 +9,12 @@ import React from 'react'
 import {
   TodoConfigProps,
   TodoFilterStatePropsFilter,
-  countItemsWithFalse,
-  setAllIsCheckToTrue
+  countItemsWithFalse
 } from '..'
 
 const variants: TodoFilterStatePropsFilter[] = ['All', 'Active', 'Completed']
 
 export function TodoConfig(props: TodoConfigProps) {
-  const handleSetFilter = (filter: TodoFilterStatePropsFilter) => {
-    props.setFilter?.(filter)
-  }
-
   const isDisabled = React.useMemo(
     () => !props.value?.length,
     [props.value?.length]
@@ -55,12 +50,12 @@ export function TodoConfig(props: TodoConfigProps) {
           width: 'auto',
           isHidden: e !== 'All' ? isDisabled : false,
           isDisabled: e !== 'All' ? isDisabled : false,
-          onClick: () => handleSetFilter(e),
+          onClick: () => props.handleSetFilter(e),
           children: <Typography variant="h6">{e}</Typography>
         }))}
       />
       <Button
-        onClick={() => props.setValue(setAllIsCheckToTrue(props.value))}
+        onClick={() => props.handleUpdateValueAllIsCheck()}
         size="mediumSmall"
         genre="productBorder"
         isHidden={isDisabled || isDisabledSelectAll}
@@ -72,7 +67,7 @@ export function TodoConfig(props: TodoConfigProps) {
       <Button
         onClick={() => {
           props.setValue(null)
-          handleSetFilter('All')
+          props.handleSetFilter('All')
         }}
         isHidden={isDisabled}
         isDisabled={isDisabled}

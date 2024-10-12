@@ -6,13 +6,36 @@ import {
   TodoFilterStatePropsFilter,
   TodoList,
   TodoNew,
-  TodoProps
+  TodoProps,
+  addValueItem,
+  updateValueAllIsCheck,
+  updateValueItemIsCheck
 } from '..'
 
 export function Todo(props: TodoProps) {
-  const [isShow, isSetShow] = React.useState<boolean>(true)
   const [filter, setFilter] = React.useState<TodoFilterStatePropsFilter>('All')
 
+  const handleUpdateValueItemIsCheck = React.useCallback(
+    (id: number) => {
+      props.setValue((prevValue) => updateValueItemIsCheck(id, prevValue))
+    },
+    [props]
+  )
+
+  const handleAddValueItem = React.useCallback(
+    (newValue: string) => {
+      props.setValue((prevValue) => addValueItem(newValue, prevValue))
+    },
+    [props]
+  )
+
+  const handleUpdateValueAllIsCheck = React.useCallback(() => {
+    props.setValue((prevValue) => updateValueAllIsCheck(prevValue))
+  }, [props])
+
+  const handleSetFilter = (filter: TodoFilterStatePropsFilter) => {
+    setFilter(filter)
+  }
   return (
     <Stack
       flexDirection="column"
@@ -22,20 +45,15 @@ export function Todo(props: TodoProps) {
       p="4px"
       style={{ borderRadius: '10px' }}
     >
-      <TodoNew
-        isShow={isShow}
-        isSetShow={isSetShow}
-        value={props.value}
-        setValue={props.setValue}
-      />
+      <TodoNew handleAddValueItem={handleAddValueItem} />
       <TodoList
+        handleUpdateValueItemIsCheck={handleUpdateValueItemIsCheck}
         filter={filter}
-        isShow={isShow}
         value={props.value}
-        setValue={props.setValue}
-        iconTodoListItem={props.iconTodoListItem}
       />
       <TodoConfig
+        handleSetFilter={handleSetFilter}
+        handleUpdateValueAllIsCheck={handleUpdateValueAllIsCheck}
         filter={filter}
         setFilter={setFilter}
         value={props.value}

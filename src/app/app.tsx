@@ -7,7 +7,14 @@ function App() {
   const [value, setValue] = useState<TodoValueProps[] | null>(null)
 
   return (
-    <Stack flexDirection="column" w="100%" maxW="680px" gap="20px" p="20px">
+    <Stack
+      flexDirection="column"
+      w="100%"
+      maxW="680px"
+      gap="20px"
+      p="20px"
+      minW="600px"
+    >
       <Todo value={value} setValue={setValue} />
     </Stack>
   )
