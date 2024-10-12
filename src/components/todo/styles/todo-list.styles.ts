@@ -23,5 +23,6 @@ export const TodoListWrapper = styled(Stack)<{
     css`
       justify-content: center;
       align-items: center;
+      width: 100%;
     `}
 `

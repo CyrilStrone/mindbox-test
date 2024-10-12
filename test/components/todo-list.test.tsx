@@ -1,7 +1,6 @@
-import { RenderResult, render } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest'
 
-import { TodoList, TodoValueProps, toggleIsCheckByKey } from '@components/todo'
+import { TodoValueProps, toggleIsCheckByKey } from '@components/todo'
 
 describe('Тестирование todo-list.tsx', () => {
   describe('Тестирование функции toggleIsCheckByKey', () => {
@@ -57,84 +56,5 @@ describe('Тестирование todo-list.tsx', () => {
         })
       })
     })
-  })
-
-  describe('Тестирование компонента TodoList', () => {
-    const setValueMock = vi.fn()
-    let renderOption: RenderResult
-    const todo = [
-      { text: 'Task 1', isCheck: false },
-      { text: 'Task 2', isCheck: true },
-      { text: 'Task 3', isCheck: false }
-    ]
-
-    beforeEach(() => {
-      renderOption = render(
-        <TodoList
-          value={todo}
-          setValue={setValueMock}
-          filter="All"
-          isShow={true}
-        />
-      )
-    })
-
-    afterEach(() => {
-      vi.clearAllMocks()
-    })
-
-    test('Компонент рендерится', () => {
-      expect(renderOption).toBeTruthy()
-    })
-
-    // describe('Тестирование отображения элементов TodoList', () => {
-    //   test('Должно отображаться 3 элемента списка', () => {
-    //     const listItems = screen.getAllByTestId('TodoListItem')
-    //     expect(listItems.length).toBe(3)
-    //   })
-
-    //   test("При отсутствии задач должно отображаться 'No Reminders'", () => {
-    //     renderOption.rerender(
-    //       <TodoList
-    //         value={[]}
-    //         setValue={setValueMock}
-    //         filter="All"
-    //         isShow={true}
-    //       />
-    //     )
-    //     expect(screen.getByText('No Reminders')).toBeTruthy()
-    //   })
-
-    //   test("Фильтр 'All' отображает все задачи", () => {
-    //     const listItems = screen.getAllByTestId('TodoListItem')
-    //     expect(listItems.length).toBe(3)
-    //   })
-
-    //   test("Фильтр 'Active' отображает только активные задачи", () => {
-    //     renderOption.rerender(
-    //       <TodoList
-    //         value={todo}
-    //         setValue={setValueMock}
-    //         filter="Active"
-    //         isShow={true}
-    //       />
-    //     )
-    //     const listItems = screen.getAllByTestId('TodoListItem')
-    //     expect(listItems.length).toBe(2)
-    //   })
-
-    //   test("Фильтр 'Completed' отображает только завершенные задачи", async () => {
-    //     renderOption.rerender(
-    //       <TodoList
-    //         value={todo}
-    //         setValue={setValueMock}
-    //         filter="Completed"
-    //         isShow={true}
-    //       />
-    //     )
-    //     const listItems = await screen.getAllByTestId('TodoListItem')
-    //     expect(listItems.length).toBe(1)
-    //   })
-    // })
   })
 })

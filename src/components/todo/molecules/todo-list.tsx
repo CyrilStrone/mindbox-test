@@ -25,7 +25,7 @@ export function TodoList(props: TodoListProps) {
         return []
     }
   }, [props.filter, props.value])
-  
+
   const isEmpty = React.useMemo(() => !filterValue.length, [filterValue])
 
   const changeExpanded = React.useCallback(() => {
@@ -39,7 +39,7 @@ export function TodoList(props: TodoListProps) {
   return (
     <Stack
       flexDirection="column"
-      alignItems="flex-start"
+      alignItems="stretch"
       flexWrap="nowrap"
       p="8px"
     >
@@ -90,7 +90,7 @@ export function TodoList(props: TodoListProps) {
         }
         accordionSummary={
           <Button size="mediumSmall" genre="blackBorder">
-            <Typography variant="h6">Show</Typography>
+            <Typography variant="h6">{expanded ? 'Close' : 'Open'}</Typography>
           </Button>
         }
         wrapperProps={{

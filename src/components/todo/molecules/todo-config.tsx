@@ -25,6 +25,13 @@ export function TodoConfig(props: TodoConfigProps) {
     [props.value?.length]
   )
 
+  const isDisabledSelectAll = React.useMemo(
+    () =>
+      (props.value ?? []).length ===
+      (props.value ?? []).filter((e) => e.isCheck).length,
+    [props.value]
+  )
+
   return (
     <Stack
       flexWrap="nowrap"
@@ -56,8 +63,8 @@ export function TodoConfig(props: TodoConfigProps) {
         onClick={() => props.setValue(setAllIsCheckToTrue(props.value))}
         size="mediumSmall"
         genre="productBorder"
-        isHidden={isDisabled}
-        isDisabled={isDisabled}
+        isHidden={isDisabled || isDisabledSelectAll}
+        isDisabled={isDisabled || isDisabledSelectAll}
       >
         <Typography variant="h6">Select all</Typography>
       </Button>

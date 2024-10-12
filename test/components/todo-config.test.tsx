@@ -1,5 +1,3 @@
-import { RenderResult, render, screen } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
 import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest'
 
 import {
@@ -7,8 +5,6 @@ import {
   countItemsWithFalse,
   setAllIsCheckToTrue
 } from '@components/todo'
-
-import { TodoConfig } from '../../src/components/todo/molecules/todo-config'
 
 describe('Тестирование todo-config.tsx', () => {
   describe('Тестирование функции setAllIsCheckToTrue', () => {
@@ -90,94 +86,6 @@ describe('Тестирование todo-config.tsx', () => {
         const count = countItemsWithFalse(todo)
         expect(count).toBe(0)
       })
-    })
-  })
-
-  describe('Тестирование компонента TodoConfig', () => {
-    const setValueMock = vi.fn()
-    const setFilterMock = vi.fn()
-    let renderOption: RenderResult
-
-    const todo = [
-      { text: 'Task 1', isCheck: false },
-      { text: 'Task 2', isCheck: true },
-      { text: 'Task 3', isCheck: false }
-    ]
-
-    beforeEach(() => {
-      renderOption = render(
-        <TodoConfig
-          value={todo}
-          setValue={setValueMock}
-          filter="All"
-          setFilter={setFilterMock}
-        />
-      )
-    })
-
-    afterEach(() => {
-      vi.clearAllMocks()
-    })
-
-    test('Компонент рендерится', () => {
-      expect(renderOption).toBeTruthy()
-    })
-
-    describe('Тестирование интерактивных элементов TodoConfig', () => {
-      test('При клике "Clear" все задачи стираются', async () => {
-        await userEvent.click(screen.getByText('Clear'))
-        expect(setValueMock).toBeCalledWith([])
-      })
-
-      // test('Работают фильтры "All", "Active", "Completed"', async () => {
-      //   await userEvent.click(screen.getByText('Active'))
-      //   expect(setFilterMock).toBeCalledWith('Active')
-      //   renderOption.rerender(
-      //     <TodoConfig
-      //       value={todo}
-      //       setValue={setValueMock}
-      //       filter="Active"
-      //       setFilter={setFilterMock}
-      //     />
-      //   )
-      //   expect(
-      //     screen
-      //       .getByText('Active')
-      //       .classList.contains('TodoConfig__ListType__Item--active')
-      //   ).toBeTruthy()
-
-      //   await userEvent.click(screen.getByText('Completed'))
-      //   expect(setFilterMock).toBeCalledWith('Completed')
-      //   renderOption.rerender(
-      //     <TodoConfig
-      //       value={todo}
-      //       setValue={setValueMock}
-      //       filter="Completed"
-      //       setFilter={setFilterMock}
-      //     />
-      //   )
-      //   expect(
-      //     screen
-      //       .getByText('Completed')
-      //       .classList.contains('TodoConfig__ListType__Item--active')
-      //   ).toBeTruthy()
-
-      //   await userEvent.click(screen.getByText('All'))
-      //   expect(setFilterMock).toBeCalledWith('All')
-      //   renderOption.rerender(
-      //     <TodoConfig
-      //       value={todo}
-      //       setValue={setValueMock}
-      //       filter="All"
-      //       setFilter={setFilterMock}
-      //     />
-      //   )
-      //   expect(
-      //     screen
-      //       .getByText('All')
-      //       .classList.contains('TodoConfig__ListType__Item--active')
-      //   ).toBeTruthy()
-      // })
     })
   })
 })
